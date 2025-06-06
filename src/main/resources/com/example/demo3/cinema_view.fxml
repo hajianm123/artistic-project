@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+           prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.demo3.CinemaDesk">
+   <VBox alignment="CENTER" prefHeight="248.0" prefWidth="407.0">
+      <children>
+         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <ChoiceBox fx:id="myChoiceBox" onAction="#setVideo" prefWidth="150">
+                  <items>
+                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="فیلم ۱"/>
+                        <String fx:value="فیلم ۲"/>
+                     </FXCollections>
+                  </items>
+               </ChoiceBox>
+               <Label text="فیلمی انتخاب کنید"/>
+            </children>
+            <padding>
+               <Insets top="10.0"/>
+            </padding>
+         </HBox>
+         <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0"/>
+         <Slider fx:id="slider" onMousePressed="#seekInVideo"/>
+         <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <children>
+               <Label text="Volume">
+                  <HBox.margin>
+                     <Insets left="10.0"/>
+                  </HBox.margin>
+               </Label>
+               <Slider fx:id="volumeSlider" onMousePressed="#setVolume"/>
+               <Button onAction="#stop" mnemonicParsing="false" text="stop"/>
+               <Button onAction="#pause">
+                  <graphic>
+                     <ImageView fitHeight="20" fitWidth="20">
+                        <image>
+                           <Image url="file:/C:/Users/hajia/OneDrive/Pictures/pause.jpg"/>
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+               <Button onAction="#play">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <image>
+                        <Image url="file:/C:/Users/hajia/OneDrive/Pictures/play.jpg"/>
+                     </image>
+                  </ImageView>
+               </graphic>
+               </Button>
+               <Label fx:id="durationLabel" text="Time: 0:00"/>
+               <Button alignment="CENTER" mnemonicParsing="false" onAction="#goBack" text="Back"/>
+            </children>
+            <padding>
+               <Insets bottom="10.0"/>
+            </padding>
+         </HBox>
+
+      </children>
+   </VBox>
+</StackPane>
