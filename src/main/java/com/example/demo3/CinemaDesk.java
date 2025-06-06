@@ -40,7 +40,8 @@ public class CinemaDesk {
     @FXML
 
     public void goBack(javafx.event.ActionEvent event) {
-        mediaPlayer.stop();
+        if (mediaPlayer != null)
+            mediaPlayer.stop();
         stage.setScene(HelloApplication.scene);
         stage.setTitle("میز کار");
         stage.show();
